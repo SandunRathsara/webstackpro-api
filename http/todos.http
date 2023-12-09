@@ -1,0 +1,29 @@
+### Send POST request to create todo
+POST http://localhost:3000/todo
+Content-Type: application/json
+
+{
+  "title": "TODO: 3",
+  "description": "Testing TODO 3",
+  "dueDate": "2023-12-08T11:11:18.307Z"
+}
+
+### Get all todos
+GET http://localhost:3000/todo
+Accept: application/json
+
+### Get one todo
+GET http://localhost:3000/todo/2
+Accept: application/json
+
+### Send POST request to create todo
+PATCH http://localhost:3000/todo/3
+Content-Type: application/json
+
+{
+  "description": "Updated TODO 3"
+}
+
+### Send POST request to create todo
+PATCH http://localhost:3000/todo/3/complete
+Content-Type: application/json
