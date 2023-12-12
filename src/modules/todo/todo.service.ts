@@ -4,6 +4,13 @@ import { UpdateTodoDto } from '@/modules/todo/dto/request/update-todo.dto';
 import { PrismaService } from 'nestjs-prisma';
 import { TodoDto } from '@/modules/todo/dto/response/todo.dto';
 
+// This function is written to emulate slow network connection
+const delay = async (seconds: number) => {
+  return await new Promise((resolve) => {
+    setTimeout(() => resolve(true), seconds * 1000);
+  });
+};
+
 @Injectable()
 export class TodoService {
   constructor(private readonly prisma: PrismaService) {}
@@ -23,7 +30,10 @@ export class TodoService {
   }
 
   async findAll() {
-    const todos = await this.prisma.todo.findMany();
+    // await delay(1);
+    const todos = await this.prisma.todo.findMany({
+      orderBy: { createdAt: 'asc' },
+    });
     return todos.map((todo) => new TodoDto(todo));
   }
 
@@ -41,6 +51,7 @@ export class TodoService {
   }
 
   async complete(id: number) {
+    // await delay(1);
     const todo = await this.prisma.todo.update({
       where: { id },
       data: { completed: true, completedAt: new Date() },

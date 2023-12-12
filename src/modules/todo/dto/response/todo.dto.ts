@@ -6,7 +6,7 @@ export class TodoDto {
   title: string;
   description: string;
   dueDate: string;
-  completed: boolean = false;
+  completed: string = 'false';
   completedAt?: string = null;
   createdAt: string;
 
@@ -15,7 +15,7 @@ export class TodoDto {
     this.title = todo.title;
     this.description = todo.description;
     this.dueDate = formatDateTime(todo.dueDate);
-    this.completed = todo.completed;
+    this.completed = todo.completed ? 'true' : 'false';
     this.createdAt = formatDateTime(todo.createdAt);
     if (todo.completed) this.completedAt = formatDateTime(todo.completedAt);
   }

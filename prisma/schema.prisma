@@ -25,4 +25,6 @@ model Todo {
   completed   Boolean   @default(false)
   completedAt DateTime?
   createdAt   DateTime  @default(now())
+
+  @@index([createdAt])
 }
