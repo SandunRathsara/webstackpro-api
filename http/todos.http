@@ -27,3 +27,7 @@ Content-Type: application/json
 ### Send POST request to complete todo
 PATCH http://localhost:8000/todo/1/complete
 Content-Type: application/json
+
+### Send DELETE request to delete a todo
+DELETE http://localhost:8000/todo/10
+Content-Type: application/json
