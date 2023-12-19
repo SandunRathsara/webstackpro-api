@@ -1,6 +1,7 @@
 ### Send POST request to create todo
 POST http://localhost:8000/todo
 Content-Type: application/json
+Authorization: Bearer
 
 {
   "title": "TODO: 3",
@@ -11,6 +12,7 @@ Content-Type: application/json
 ### Get all todos
 GET http://localhost:8000/todo
 Accept: application/json
+Authorization: Bearer
 
 ### Get one todo
 GET http://localhost:8000/todo/2
@@ -19,6 +21,7 @@ Accept: application/json
 ### Send POST request to update todo
 PATCH http://localhost:8000/todo/3
 Content-Type: application/json
+Authorization: Bearer
 
 {
   "description": "Updated TODO 3"
@@ -27,7 +30,9 @@ Content-Type: application/json
 ### Send POST request to complete todo
 PATCH http://localhost:8000/todo/1/complete
 Content-Type: application/json
+Authorization: Bearer
 
 ### Send DELETE request to delete a todo
 DELETE http://localhost:8000/todo/10
 Content-Type: application/json
+Authorization: Bearer
